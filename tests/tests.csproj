@@ -25,6 +25,7 @@
     <None Remove="PactNet.Linux.x86" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\example-bi-directional-consumer-dotnet.core\example-bi-directional-consumer-dotnet.core.csproj" />
+    <ProjectReference Include="..\example-bi-directional-provider-dotnet.core\example-bi-directional-provider-dotnet.csproj" />
+    <ProjectReference Include="..\example-bi-directional-consumer-dotnet.core\example-bi-directional-consumer-dotnet.csproj" />
   </ItemGroup>
 </Project>

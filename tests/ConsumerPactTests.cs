@@ -4,6 +4,7 @@ using Xunit.Abstractions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Consumer;
+using Provider.Models;
 using System.Collections.Generic;
 using System.Net.Http;
 using PactNet.Matchers;

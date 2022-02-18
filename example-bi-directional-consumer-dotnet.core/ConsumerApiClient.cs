@@ -2,16 +2,10 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Provider.Models;
 
 namespace Consumer
 {
-    public struct Product
-    {
-        public int id;
-        public string type;
-        public string name;
-    }
-
     public class ProductClient
     {
         #nullable enable
@@ -28,11 +22,11 @@ namespace Consumer
         }
 
 
-        public async Task<Product> GetProduct(string baseUrl, string productId, HttpClient? httpClient = null)
+        public async Task<Product> GetProduct(string baseUrl, int productId, HttpClient? httpClient = null)
         {
             using var client = httpClient == null ? new HttpClient() : httpClient;
 
-            var response = await client.GetAsync(baseUrl + "/product/" + productId);
+            var response = await client.GetAsync(baseUrl + "products/" + productId);
             response.EnsureSuccessStatusCode();
 
             var resp = await response.Content.ReadAsStringAsync();

@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Provider.Models;
+using Newtonsoft.Json;
 
 namespace Consumer
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            string baseUri = "http://localhost:9000";
+            var baseUri = "http://localhost:9000/";
 
             Console.WriteLine("Fetching products");
+            Console.ReadLine();
             var consumer = new ProductClient();
-           var result = consumer.GetProducts(baseUri).GetAwaiter().GetResult();
-            Console.WriteLine(result);
+            var result = await consumer.GetProducts(baseUri);
+            Console.WriteLine(JsonConvert.SerializeObject(result));
 
-            Product productResult = consumer.GetProduct(baseUri, "20").GetAwaiter().GetResult();
-            Console.WriteLine(productResult);
+            Product productResult = await consumer.GetProduct(baseUri, 10);
+            Console.WriteLine(JsonConvert.SerializeObject(productResult));
         }
 
         static private void WriteoutArgsUsed(string datetimeArg, string baseUriArg)
