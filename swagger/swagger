@@ -16,7 +16,7 @@
         "parameters" : [ {
           "name" : "provider",
           "in" : "path",
-          "description" : "Provider to get pacts for",
+          "description" : "Provider to get pacts for, but only if you are NOT nice",
           "required" : true,
           "style" : "simple",
           "explode" : false,
